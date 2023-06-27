@@ -27,6 +27,10 @@ class Program
 
         // Đợi cho luồng phụ hoàn thành trước khi kết thúc chương trình
         thread.Join();
+
+        // Đợi người dùng nhấn phím để kết thúc chương trình
+        Console.Write("Press any key to exit...");
+        Console.ReadKey();
     }
 
     static void WorkerMethod()
@@ -41,6 +45,21 @@ class Program
 ```
 
 Trong ví dụ này, chúng ta tạo một luồng mới và chạy phương thức `WorkerMethod()` trên luồng đó. Đồng thời, luồng chính cũng thực hiện công việc của nó trong vòng lặp. Khi chạy, bạn sẽ thấy các dòng in được đồng thời từ cả hai luồng, cho thấy tính đa luồng trong chương trình.
+
+Kết quả có thể trông như dưới đây:
+
+```text
+Main Thread: 0
+Worker Thread: 0
+Worker Thread: 1
+Main Thread: 1
+Worker Thread: 2
+Main Thread: 2
+Worker Thread: 3
+Main Thread: 3
+Worker Thread: 4
+Main Thread: 4
+```
 
 ---
 
